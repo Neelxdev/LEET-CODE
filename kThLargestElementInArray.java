@@ -1,0 +1,22 @@
+
+import java.util.PriorityQueue;
+
+public class kThLargestElementInArray {
+    public static void main(String[] args) {
+        System.out.println(solution(new int[] {
+            6,7,3,0,1,2,9,5,4
+        }, 3));
+    }
+
+    static int solution(int[] nums, int k) {
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        
+        for (int num : nums) {
+            pq.add(num);
+        }
+        while (pq.size() > k) {
+            pq.remove();
+        }
+        return pq.peek();
+    }
+}
